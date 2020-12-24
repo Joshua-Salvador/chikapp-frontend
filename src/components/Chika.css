@@ -1,0 +1,41 @@
+.chika {
+  border: 1px solid #e0e0e0;
+  margin: auto 35%;
+  text-align: left;
+  min-height: 67px;
+}
+
+.chika__userInfo {
+  margin: 0 10px 5px 10px;
+  padding-top: 10px;
+  display: flex;
+  height: 20px;
+}
+
+.chika__userImg {
+  object-fit: cover;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.chika__username {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-left: 15px;
+}
+
+.chika__tagname {
+  font-size: 1rem;
+  margin-left: 5px;
+  font-weight: lighter;
+}
+
+.chika__userText {
+  margin-top: 15px;
+  margin-left: 75px;
+}
+
+.chika__text {
+  line-height: 1;
+}

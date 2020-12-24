@@ -1,0 +1,10 @@
+.welcome__container {
+  margin-top: 150px;
+}
+
+.welcome__links {
+  margin: 200px auto;
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
