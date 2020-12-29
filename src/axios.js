@@ -1,7 +1,9 @@
 import Axios from "axios";
 
 const instance = Axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL:
+    "http://chikapp-env.eba-ni56ywqs.ap-southeast-1.elasticbeanstalk.com/",
 });
 
 export default instance;
+// "http://localhost:5000/"
