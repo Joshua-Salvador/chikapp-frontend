@@ -6,7 +6,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 function Chika({username, chika, userImg, tagname, isVerified, index}) {
 
   return (
-    <div className='chika' style={{borderTop: index !== 0 ? 'none' : ''}}>
+    <div className='chika' style={{borderTop: index !== 0 ? 'none' : '', marginTop: index !== 0 ? 0 : '20px'}}>
       <div className="chika__userInfo">
         <img className='chika__userImg' src={userImg} alt=""/>
         <h6 className="chika__username">{username}</h6>

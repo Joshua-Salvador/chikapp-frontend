@@ -4,7 +4,18 @@
 
 .welcome__links {
   margin: 200px auto;
-  width: 400px;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
+}
+
+@media (max-width: 500px) {
+  .welcome__statement {
+    padding: 8px;
+    font-size: 19px;
+    line-height: 2;
+  }
+  .welcome__links {
+    margin: 100px auto;
+  }
 }

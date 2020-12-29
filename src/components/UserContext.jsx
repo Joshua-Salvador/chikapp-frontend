@@ -11,11 +11,10 @@ export const UserProvider = (props) => {
 
   useEffect(() => {
     async function fetchUserData() {
-      const req = await axios.get('/' + account);
-
-      const { _id, username, displayname, tagname, chikaId, userImg, isVerified, isAuthenticated} = req.data[0];
-
-      setUser({
+      try {
+        const request = await axios.get('/' + account);
+        const { _id, username, displayname, tagname, chikaId, userImg, isVerified, isAuthenticated} = request.data;
+        setUser({
         _id,
         username,
         displayname, 
@@ -25,13 +24,18 @@ export const UserProvider = (props) => {
         isVerified,
         isAuthenticated
       })
+      } catch (error) {
+      }
+      return () => setUser({})
     }
     fetchUserData()
-  })
+   
+  }, [])
 
   return (
+    
     <UserContext.Provider value={user} >
       {props.children}
-    </UserContext.Provider>
+    </UserContext.Provider> 
   );
 }

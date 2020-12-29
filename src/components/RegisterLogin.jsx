@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import axios from '../axios'
 import Header from './Header'
@@ -11,6 +11,12 @@ function RegisterLogin() {
   const [password, setPassword] = useState('')
   const [userImg, setUserImg] = useState('')
 
+  let [incorrect, setIncorrect] = useState(false);
+
+  useEffect(() => {
+    setIncorrect(false)
+  }, [])
+
   let history = useHistory();
 
   const data = {
@@ -22,11 +28,13 @@ function RegisterLogin() {
 
   const registerUser = async (e) => {
     e.preventDefault()
-    console.log(data);
-    await axios.post('/registeruser', data)
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err))
-    history.push('/' + displayname)
+    try {
+      await axios.post('/registeruser', data)
+      history.replace('/' + displayname)
+    } catch (error) {
+      setIncorrect(true)
+    }
+    
   }
 
 
@@ -50,12 +58,14 @@ function RegisterLogin() {
         <Form.Group className='registerLogin__formGroup'>
           <Form.Label>Password: </Form.Label>
           <Form.Control type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)}  value={password} ></Form.Control>
+          <p className='register__error' style={{display: !incorrect ? 'none' : 'block'}} >Username or tagname already in use</p>
         </Form.Group>
-        <Button type='submit' variant='primary'>Register</Button>
+        <Button className='registerLogin__button' type='submit' variant='primary'>Register</Button>
+        <Link to='/login'>
+          <Button className='registerLogin__button'>Login</Button>
+        </Link>
       </Form>
-      <Link to='/login'>
-        <Button>Login</Button>
-      </Link>
+      
       
     </div>
   )

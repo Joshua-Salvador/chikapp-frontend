@@ -4,32 +4,46 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import axios from '../axios'
 import { UserContext } from './UserContext'
+import {useHistory} from 'react-router-dom'
 import './ChikaInput.css'
 
 
 function ChikaInput() {
-  
+  const history = useHistory()
   const [chika, setChika] = useState('')
   const context = useContext(UserContext);
-  const {username, tagname, userImg, isVerified} = context
+  // console.log(context)
+  const {displayname, username, tagname, userImg, isVerified} = context
   const data = {
     username,
+    displayname,
     tagname,
     isVerified,
     userImg,
     chika
   }
 
+  const [show, setShow] = useState(false)
+  const handleClose = () => {
+    setShow(false)
+  };
+
+
   const handleChange = (e) => {
     e.preventDefault()
-    setChika(e.target.value)
+    setChika(prev => e.target.value)
   }
 
   const submitChika = async (e) => {
     e.preventDefault()
-    setChika('')
-    console.log(data);
-    await axios.post('/create-chika', data);
+    if (chika === '') {
+      return setShow(true)
+    } else {
+      setChika('')
+      await axios.post('/create-chika', data);
+      
+    }   
+    
   }
 
   return (
@@ -42,6 +56,17 @@ function ChikaInput() {
           <Button type="submit" className='chikaInput__button rounded-pill' variant='primary' >Chika</Button>
         </Form.Group>
       </Form>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Oops...</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>It looks like you tried to send an empty chika</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }

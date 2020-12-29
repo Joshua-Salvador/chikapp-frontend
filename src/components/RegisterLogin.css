@@ -1,7 +1,23 @@
-.registerLogin__registerForm,
-.registerLogin__loginForm {
+.register__error {
+  color: #ff4255;
+}
+
+.registerLogin__registerForm {
   margin: auto;
   margin-top: 8%;
   width: 35%;
   text-align: left;
+}
+
+.registerLogin__button {
+  display: block;
+  margin: 10px auto;
+}
+
+@media (max-width: 600px) {
+  .registerLogin__registerForm {
+    width: 80%;
+    margin-left: 40px;
+    margin-right: 50px;
+  }
 }

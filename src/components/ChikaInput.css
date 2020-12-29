@@ -45,3 +45,35 @@
   margin-left: 10px;
   width: 78px;
 }
+
+@media (max-width: 500px) {
+  .chikaInput {
+    margin: 20px;
+  }
+  .chikaInput__textarea::placeholder {
+    font-size: 1.25rem;
+  }
+  .chikaInput__textarea {
+    resize: none;
+    font-size: 1.25rem;
+    border: none;
+  }
+  .chikaInput__button {
+    padding: 4px 8px;
+    width: 68px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .chikaInput {
+    margin: 10px;
+  }
+  .chikaInput__textarea::placeholder {
+    font-size: 1rem;
+  }
+  .chikaInput__textarea {
+    resize: none;
+    font-size: 1rem;
+    border: none;
+  }
+}

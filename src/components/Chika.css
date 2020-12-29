@@ -1,6 +1,6 @@
 .chika {
   border: 1px solid #e0e0e0;
-  margin: auto 35%;
+  margin: 0 35%;
   text-align: left;
   min-height: 67px;
 }
@@ -38,4 +38,66 @@
 
 .chika__text {
   line-height: 1;
+}
+@media (max-width: 500px) {
+  .chika {
+    margin: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .chika__userImg {
+    object-fit: cover;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+  }
+  .chika__username {
+    font-size: 0.9rem;
+    font-weight: bolder;
+    margin-left: 15px;
+  }
+  .chika__tagname {
+    font-size: 0.9rem;
+    margin-left: 5px;
+    font-weight: lighter;
+  }
+  .chika__userText {
+    margin-top: 15px;
+    margin-left: 55px;
+  }
+  .chika__text {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 400px) {
+  .chika {
+    margin: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .chika__userImg {
+    object-fit: cover;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+  }
+  .chika__username {
+    font-size: 12px;
+    font-weight: bolder;
+    margin-left: 5px;
+  }
+  .chika__tagname {
+    font-size: 12px;
+    margin-left: 5px;
+    font-weight: lighter;
+  }
+  .chika__text {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  .chika__userText {
+    margin-left: 45px;
+  }
 }

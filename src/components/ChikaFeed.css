@@ -1,0 +1,9 @@
+.chikaFeed {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 500px) {
+  .chikaFeed {
+    margin-bottom: 10px;
+  }
+}

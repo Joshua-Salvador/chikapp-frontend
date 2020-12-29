@@ -1,0 +1,14 @@
+.accountControls {
+  margin-top: 20px;
+}
+
+@media (max-width: 500px) {
+  .accountControls {
+    margin-top: 10px;
+  }
+  .accountControls__button {
+    padding: 4px 8px;
+    width: 68px;
+    font-size: 12px;
+  }
+}
